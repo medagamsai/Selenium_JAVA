@@ -1,0 +1,27 @@
+public static void main(String[] args) throws IOException {
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.get("https://www.flipkart.com/");
+		
+		driver.findElement(By.name("q")).sendKeys("iphone 16",Keys.ENTER);
+		driver.findElement(By.xpath("//div[text()='Apple iPhone 16 (Teal, 256 GB)']")).click();
+		
+		Set<String> allwin = driver.getWindowHandles();
+		
+		System.out.println(allwin);
+		String childwin = driver.getWindowHandle();
+		System.out.println(childwin);
+		
+		for(String allwindows : allwin) {
+			if(allwindows.equals(childwin)) {
+				driver.switchTo().window(allwindows);
+			}
+		}
+		
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File temp = ts.getScreenshotAs(OutputType.FILE);
+		File src = new File("./error/win.png");
+		FileHandler.copy(temp, src);
+	}
