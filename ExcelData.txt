@@ -1,0 +1,25 @@
+public static void main(String[] args) throws EncryptedDocumentException, IOException {
+		FileInputStream fis = new FileInputStream("./TestData/sai.xlsx");
+		Workbook wb = WorkbookFactory.create(fis);
+		
+		String url = wb.getSheet("Sheet1").getRow(0).getCell(0).toString();
+		String fn = wb.getSheet("Sheet1").getRow(1).getCell(0).getStringCellValue();
+		String ln = wb.getSheet("Sheet1").getRow(2).getCell(0).toString();
+		String em = wb.getSheet("Sheet1").getRow(3).getCell(0).toString();
+		String pwd = wb.getSheet("Sheet1").getRow(4).getCell(0).toString();
+		String cpwd = wb.getSheet("Sheet1").getRow(5).getCell(0).toString();
+		
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.get(url);
+		driver.findElement(By.id("gender-male")).click();
+		driver.findElement(By.id("FirstName")).sendKeys(fn);
+		driver.findElement(By.id("LastName")).sendKeys(ln);
+		driver.findElement(By.id("Email")).sendKeys(em);
+		driver.findElement(By.id("Password")).sendKeys(pwd);
+		driver.findElement(By.id("ConfirmPassword")).sendKeys(cpwd,Keys.ENTER);
+		
+		
+	}
