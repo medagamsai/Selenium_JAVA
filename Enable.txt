@@ -1,0 +1,28 @@
+public class ToUse_enabled {
+
+	
+	@Test(enabled = true)
+	public void cricbuzz() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.cricbuzz.com/");
+		Reporter.log("cricbuzz got executed", true);
+		driver.quit();
+	}
+	
+	@Test(enabled = false)
+	public void baskinrobbins() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://baskinrobbinsindia.com/");
+		Reporter.log("baskin got executed", true);
+		driver.quit();
+	}
+	
+	@Test(enabled = true)
+	public void amazon() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.amazon.in/");
+		Reporter.log("amazon got executed", true);
+		driver.quit();
+		
+	}
+}

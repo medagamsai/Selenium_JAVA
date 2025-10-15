@@ -1,0 +1,23 @@
+public class ToUse_DependentOnMethods {
+	
+	@Test
+	public void CreateAccount() {
+		Reporter.log("Account created successfully", true);
+	}
+	
+	@Test(dependsOnMethods  = "CreateAccount")
+	public void editAccount() {
+		Reporter.log("Account edited successfully", true);
+	}
+	
+	@Test(dependsOnMethods  ="editAccount")
+	public void deleteAccount() {
+		Reporter.log("Account deleted successfully", true);
+	}
+	
+//	@Test(dependsOnMethods  ={"editAccount","CreateAccount"})    //Depend more than one method
+//	public void deleteAccount() {
+//		Reporter.log("Account deleted successfully", true);
+//	}
+
+}
