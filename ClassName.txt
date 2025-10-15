@@ -1,0 +1,11 @@
+public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://demowebshop.tricentis.com/login");
+		Thread.sleep(2000);
+		driver.findElement(By.className("email")).sendKeys("sai123");
+		Thread.sleep(2000);
+		driver.quit();
+		
+		}

@@ -1,0 +1,10 @@
+public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.facebook.com/");
+		driver.findElement(By.id("email")).sendKeys("sai");
+		Thread.sleep(2000);
+		driver.quit();
+		
+	}
+	

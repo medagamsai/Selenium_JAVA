@@ -1,0 +1,86 @@
+Xpath BY Attribute:--
+
+
+public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demowebshop.tricentis.com/login");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@value='Log in']")).click();
+		Thread.sleep(2000);
+		driver.quit();
+	}
+
+Xpath BY VISIBLE_TEXT:--
+
+public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demowebshop.tricentis.com/login");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//span[text()='Shopping cart']")).click();
+		Thread.sleep(2000);
+		driver.quit();
+	}
+
+Xpath CONTAINS:--
+
+public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demowebshop.tricentis.com/login");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@value='Log in']")).click();
+		Thread.sleep(2000);
+		String error=driver.findElement(By.xpath("//span[contains(text(),'Login')]")).getText();
+		System.out.println(error);
+		Thread.sleep(2000);
+		driver.quit();
+		
+	}
+
+
+xpath indep & depen:---
+
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.shoppersstack.com/");
+		Thread.sleep(15000);
+		driver.findElement(By.xpath("//span[text()='FOREVER21']/../..//button[@id='addToCart']")).click();
+		Thread.sleep(2000);
+		driver.quit();
+		
+	}
+
+
+Xpath BY INDEX:---
+
+
+public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demowebshop.tricentis.com/login");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
+		Thread.sleep(2000);
+		driver.quit();
+	}
+
+
+xpath by multiple_attributes:--
+
+
+public static void main(String[] args) throws InterruptedException {
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://demowebshop.tricentis.com/login");
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//input[@type='submit' and @value = 'Search']")).click();
+		Thread.sleep(2000);
+		driver.quit();
+	}
