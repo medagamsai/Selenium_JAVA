@@ -1,0 +1,17 @@
+public class ToLearnTestNG {
+
+	@Test
+	public void cricbuzz() {
+		Reporter.log("cricbuzz got executed", true);
+	}
+	
+	@Test
+	public void baskin() {
+		Reporter.log("baskin got executed", true);
+	}
+	
+	@Test
+	public void amazon() {
+		Reporter.log("amazon got executed", true);
+		
+	}
