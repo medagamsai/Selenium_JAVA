@@ -1,0 +1,14 @@
+public class Tc001_dws extends BaseClass {
+
+	String expectData="Books";
+	@Test
+	public void Tocheckbookpage() {
+		driver.findElement(By.partialLinkText("Books")).click();
+		String actualdata = driver.findElement(By.xpath("//h1[text()='Books']")).getText();
+
+		
+		Assert.assertEquals(actualdata, expectData);
+		Reporter.log("Navigated to book page successfully", true);
+	}
+	
+}

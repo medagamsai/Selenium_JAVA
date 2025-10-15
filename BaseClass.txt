@@ -1,0 +1,45 @@
+	WebDriver driver;
+	String expceptedHomePage="Demo Web Shop";
+	@Parameters("browser")		//edge
+	@BeforeClass
+	public void tolaunch(@Optional("chrome")String bname) {
+		if(bname.equalsIgnoreCase("chrome")) {
+		driver=new ChromeDriver();
+		}else if(bname.equalsIgnoreCase("edge")) {
+			driver = new EdgeDriver();
+		}else if(bname.equalsIgnoreCase("firefox")) {
+			driver=new FirefoxDriver();
+		}
+		Reporter.log("browser got launched", true);
+		driver.manage().window().maximize();
+		Reporter.log("browser got maximized", true);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(12));
+	}
+	@AfterClass
+	public void close() {
+		Reporter.log("browser got closed successfully", true);
+		driver.quit();
+	}
+	@BeforeMethod
+	public void tologin() {
+		driver.get("https://demowebshop.tricentis.com/");
+		String actualHomepage = driver.getTitle();
+		if(actualHomepage.equals(expceptedHomePage)) {
+			Reporter.log("navigated to demo web shop successfully", true);
+		}
+		else {
+			Reporter.log("failed to navigated to demo web shop", true);
+		}
+		driver.findElement(By.linkText("Log in")).click();
+		driver.findElement(By.id("Email")).sendKeys("seleniumM4@gmail.com");
+		driver.findElement(By.id("Password")).sendKeys("selenium@123");
+		driver.findElement(By.xpath("//input[@value='Log in']")).click();
+		Reporter.log("logged in successfully", true);
+	}
+	
+	@AfterMethod
+	public void tologout() {
+		driver.findElement(By.linkText("Log out")).click();
+		Reporter.log("log out successfully", true);
+	}
+	

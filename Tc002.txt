@@ -1,0 +1,12 @@
+public class Tc002_dws extends BaseClass{
+
+	String expectData="Computers";
+	@Test
+	public void tocheckComputers() {
+		driver.findElement(By.partialLinkText("Computers")).click();
+		String actualData = driver.findElement(By.xpath("//h1[text()='Computers']")).getText();
+
+		Assert.assertEquals(actualData, expectData);
+		Reporter.log("Navigated to computers page successfully", true);
+	}
+}
