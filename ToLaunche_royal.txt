@@ -1,0 +1,11 @@
+public class ToLaunche_royal {
+	
+	@Test(groups = "system")
+	public void royal() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.royalenfield.com/in/en/home/");
+		Reporter.log("Royal Enfield got launched", true);
+		driver.quit();
+	}
+
+}

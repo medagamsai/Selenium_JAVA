@@ -1,0 +1,11 @@
+public class ToLaunch_bmw {
+	
+	@Test(groups = "smoke")
+	public void bmw() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.bmw-motorrad.in/en/models/modeloverview.html");
+		Reporter.log("BMW got launched", true);
+		driver.quit();
+	}
+
+}

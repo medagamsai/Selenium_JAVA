@@ -1,0 +1,12 @@
+public class ToLaunch_bajaj {
+
+	
+	@Test(groups = "smoke")
+	public void bajaj() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.bikewale.com/bajaj-bikes/platina/");
+		Reporter.log("bajaj got launched", true);
+		driver.quit();
+	}
+
+}

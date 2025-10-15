@@ -1,0 +1,11 @@
+public class ToLaunch_suzuki {
+	
+	@Test(groups = "functional")
+	public void suzuki() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.suzukimotorcycle.co.in/");
+		Reporter.log("suzuki got launched", true);
+		driver.quit();
+	}
+
+}

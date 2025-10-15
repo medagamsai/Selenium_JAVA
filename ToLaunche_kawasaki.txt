@@ -1,0 +1,10 @@
+public class ToLaunche_kawasaki {
+
+	@Test(groups = "system")
+	public void kawasaki() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://kawasaki-india.com/bikes/ninja-300/");
+		Reporter.log("kawasaki got launched", true);
+		driver.quit();
+	}
+}

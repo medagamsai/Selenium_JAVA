@@ -1,0 +1,10 @@
+public class ToLaunche_Honda {
+
+	@Test(groups = "functional")
+	public void honda() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.honda2wheelersindia.com/");
+		Reporter.log("honda got launched", true);
+		driver.quit();
+	}
+}
