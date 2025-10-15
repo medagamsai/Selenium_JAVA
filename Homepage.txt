@@ -1,0 +1,17 @@
+public HomePage(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+	}
+	@FindBy(linkText = "Register")
+	private WebElement registerlink;
+	
+	@FindBy(linkText = "Log in")
+	private WebElement loginlink;
+	
+	public WebElement getRegisterlink() {
+		return registerlink;
+	}
+	
+	public WebElement getLoginlink() {
+		return loginlink;
+	}
+	
