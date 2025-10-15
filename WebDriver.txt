@@ -1,0 +1,150 @@
+CLOSE:----
+
+
+	public static void main(String[] args) throws InterruptedException {
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.swiggy.com/");
+		Thread.sleep(2000);
+		
+		driver.close();
+
+	}
+
+
+
+CURRENT_URL:---
+
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.swiggy.com/");
+		String url=driver.getCurrentUrl();
+		System.out.println(url);
+		Thread.sleep(3000);
+		
+		driver.quit();
+	}
+
+
+GET_TITLE:---
+
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.swiggy.com/");
+		String titleofwebpage = driver.getTitle();
+		System.out.println(titleofwebpage);
+	}
+
+
+
+GET WINDOW HANDLE:---
+
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.swiggy.com/");
+		String handle=driver.getWindowHandle();
+		System.out.println(handle);
+		
+		Thread.sleep(3000);
+		
+		driver.close();
+	}
+
+
+GET WINDOW HANDLES:---
+
+
+	public static void main(String[] args) throws InterruptedException {
+
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://web.whatsapp.com/");
+		Thread.sleep(3000);
+		
+		driver.findElement();
+		Thread.sleep(3000);
+		Set<String> allWindowids = driver.getWindowHandles();
+		System.out.println(allWindowids);
+		
+		driver.quit();
+	}
+
+
+
+
+MANAGE:----
+
+
+public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.swiggy.com/");
+//		driver.manage().window().fullscreen();
+//		driver.manage().window().maximize();
+//		driver.manage().window().minimize();
+		
+//		Dimension d = new Dimension(10, 20);
+//		driver.manage().window().setSize(d);
+		
+//		Dimension d =driver.manage().window().getSize();
+//		System.out.println(d);
+		
+//		Point position = driver.manage().window().getPosition();
+//		System.out.println(position);
+		
+		Point setposition = new Point(150, 17);
+		driver.manage().window().setPosition(setposition);
+		
+		Thread.sleep(3000);
+		
+		driver.quit();
+	}
+
+
+
+NAVIGATE:----
+
+
+public static void main(String[] args) throws MalformedURLException, InterruptedException {
+	WebDriver driver = new ChromeDriver();
+	driver.manage().window().maximize();
+//	driver.navigate().to("https://www.swiggy.com/");
+//	driver.navigate().to(new URL("https://www.swiggy.com/"));
+	driver.get("https://www.swiggy.com/");
+	driver.navigate().forward();
+	Thread.sleep(3000);
+	driver.navigate().back();
+	Thread.sleep(2000); 
+	driver.navigate().refresh();
+	Thread.sleep(2000);
+	
+	driver.quit();
+}
+
+
+
+QUIT:---
+
+
+	public static void main(String[] args) throws InterruptedException {
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.swiggy.com/");
+		Thread.sleep(2000);
+		driver.quit(); // stop the server
+
+	}
+
+
+
+WEP_PAGE_SOURCE:---
+
+
+	public static void main(String[] args) {
+		 WebDriver driver = new ChromeDriver();
+		 driver.get("https://www.swiggy.com/");
+		 String pagesource = driver.getPageSource();
+		 System.out.println(pagesource);
+		 driver.quit();
+	}
